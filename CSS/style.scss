@@ -1,0 +1,105 @@
+$mainColor: red;
+
+@mixin flex-center($direction: row, $space: center) {
+  display: flex;
+  align-items: center;
+  justify-content: $space;
+  flex-direction: $direction;
+}
+
+body {
+  @include flex-center(row, space-around);
+  font-family: cursive;
+}
+
+.form-product {
+  min-width: 500px;
+  border-bottom: 1px solid $mainColor;
+
+  h2 {
+    padding: 20px;
+    background-color: $mainColor;
+    color: wheat;
+    border-radius: 20px 20px 0 0;
+  }
+  .list-product {
+    @include flex-center(column, space-evenly);
+    width: 100%;
+
+    .item {
+      width: 100%;
+      @include flex-center(row, space-around);
+
+      img {
+        width: 20%;
+      }
+      input {
+        width: 30px;
+      }
+      button {
+        background-color: orange;
+        padding: 5px;
+        border-radius: 5px;
+        border: none;
+        font-size: 14px;
+        font-weight: bold;
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+.form-cart {
+  h1 {
+    margin-left: 30%;
+  }
+  #back {
+    float: right;
+    text-decoration: none;
+    padding: 10px;
+    background-color: $mainColor;
+    border-radius: 20px;
+    color: white;
+    margin-bottom: 10px;
+  }
+  table {
+    width: 100%;
+    th,
+    td {
+      border: 1px solid black;
+      font-size: 24px;
+      .remove-btn {
+        color: rgb(160, 160, 160);
+        cursor: pointer;
+        font-size: 30px;
+        margin-left: 30%;
+        &:hover {
+          color: red;
+        }
+      }
+    }
+  }
+
+  .status {
+    width: 100%;
+    background-color: greenyellow;
+    border-radius: 5px;
+    margin-top: 20px;
+    span {
+      margin-left: 20px;
+    }
+  }
+
+  .checkout {
+    float: right;
+    input {
+      padding: 10px;
+      background-color: $mainColor;
+      border-radius: 20px;
+      color: white;
+      font-size: 24px;
+      border: none;
+      cursor: pointer;
+    }
+  }
+}
